@@ -2,7 +2,7 @@ import {createStore} from 'redux'
 
 //Initial State
 const initialState = {
-  todo: ['Practice the Piano', 'Make Dinner']
+  todo: ['Call Mom', 'Binge Derry Girls']
 }
 
 //Action Constants
@@ -13,11 +13,15 @@ export const ADD_TO_LIST = 'ADD_TO_LIST'
 function reducer(state = initialState, action){
   switch(action.type){
     case ADD_TO_LIST:
-      
+      let newList = [...state.todo, action.payload]
+      return {...state, todo: newList}
     default:
       return state
   }
 }
 
 // Export
-export default createStore(reducer)
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__
+const store = createStore(reducer, composeEnhancers())
+export default store

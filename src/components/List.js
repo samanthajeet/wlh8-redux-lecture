@@ -9,6 +9,8 @@ class List extends Component {
       list: reduxState.todo
      }
   }
+
+  
   render() { 
     let mappedList = this.state.list.map( item => {
       return (
