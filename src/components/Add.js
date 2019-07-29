@@ -20,6 +20,9 @@ class Add extends Component {
       type: ADD_TO_LIST ,
       payload: this.state.input
     })
+    this.setState({
+      input: ''
+    })
   }
 
   render() {

@@ -7,13 +7,19 @@ const initialState = {
 
 //Action Constants
 export const ADD_TO_LIST = 'ADD_TO_LIST'
+export const REMOVE_FROM_LIST = 'REMOVE_FROM_LIST'
 
 
 //Reducer
 function reducer(state = initialState, action){
   switch(action.type){
     case ADD_TO_LIST:
-      let newList = [...state.todo, action.payload]
+      var newList = [...state.todo, action.payload]
+      return {...state, todo: newList}
+    case REMOVE_FROM_LIST: 
+    // eslint-disable-next-line
+      var newList = [...state.todo]
+      newList.splice(action.payload, 1)
       return {...state, todo: newList}
     default:
       return state
